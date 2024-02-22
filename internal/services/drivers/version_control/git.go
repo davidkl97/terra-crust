@@ -161,7 +161,7 @@ func (g *Git) getGitCredentials(url string, externalGit bool) (userName string, 
 		if userName != "" && password != "" {
 			return userName, password, nil
 		}
-		g.log.Warnf("credentials not found from env variables. falling back to git credentials")
+		g.log.Debugf("credentials not found from env variables. falling back to git credentials")
 	}
 	// Required until https://github.com/go-git/go-git/issues/490 addressed
 	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(GitCredentialDeadLineMs*time.Millisecond))
